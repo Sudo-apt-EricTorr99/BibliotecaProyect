@@ -21,7 +21,7 @@ public class Conexion {
     private void conectar() {
         try {
             
-            String rutafile = "C:\\Users\\Eric\\Documents\\NetBeansProjects\\bibliotecaproyect\\Biblioteca_pf\\DatabaseBiblio2.accdb";
+            String rutafile = "C:\\Users\\Ericr\\Documents\\NetBeansProjects\\bibliotecaproyect\\Biblioteca_pf\\DatabaseBiblio2.accdb";
             String Url = "jdbc:ucanaccess://" + rutafile;
             con = DriverManager.getConnection(Url);
             st = con.createStatement();
