@@ -8,12 +8,12 @@ package Vista;
  *
  * @author angel
  */
-public class Libros extends javax.swing.JPanel {
+public class VentanaLibros extends javax.swing.JPanel {
 
     /**
      * Creates new form Principal1
      */
-    public Libros() {
+    public VentanaLibros() {
         initComponents();
     }
 

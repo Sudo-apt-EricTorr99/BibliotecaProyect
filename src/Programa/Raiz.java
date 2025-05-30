@@ -4,12 +4,12 @@
  */
 package Programa;
 
-import Vista.Devoluciones;
-import Vista.Libros;
-import Vista.Prestamos;
+import Vista.VentanaDevoluciones;
+import Vista.VentanaLibros;
+import Vista.VentanaPrestamos;
 import Vista.Principal1;
-import Vista.Registro; 
-import Vista.Usuarios;
+import Vista.VentanaRegistros; 
+import Vista.VentanaUsuarios;
 import java.awt.BorderLayout;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -272,25 +272,25 @@ public class Raiz extends javax.swing.JFrame {
     private void BotonRegristrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegristrosActionPerformed
         // TODO add your handling code here:
         //boton para  llamar a la ventana Registro
-        showPanel(new Registro());
+        showPanel(new VentanaRegistros());
     }//GEN-LAST:event_BotonRegristrosActionPerformed
 
     private void BotonLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLibrosActionPerformed
         // TODO add your handling code here:
         //boton para llamar a la ventana libros
-        showPanel(new Libros());
+        showPanel(new VentanaLibros());
     }//GEN-LAST:event_BotonLibrosActionPerformed
 
     private void BotonDevolucionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonDevolucionesActionPerformed
         // TODO add your handling code here:
         //boton para llamar a la ventana devoluciones
-        showPanel(new Devoluciones());
+        showPanel(new VentanaDevoluciones());
     }//GEN-LAST:event_BotonDevolucionesActionPerformed
 
     private void BotonPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPrestamosActionPerformed
         // TODO add your handling code here:
         //boton para llamar a la ventana prestamos
-        showPanel(new Prestamos());
+        showPanel(new VentanaPrestamos());
     }//GEN-LAST:event_BotonPrestamosActionPerformed
 
     private void BotonVentanaPrincipal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVentanaPrincipal1ActionPerformed
@@ -303,7 +303,7 @@ public class Raiz extends javax.swing.JFrame {
     private void BotonUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonUsuariosActionPerformed
         // TODO add your handling code here:
         //boton para llamar a a la ventana Usuario
-        showPanel(new Usuarios());
+        showPanel(new VentanaUsuarios());
     }//GEN-LAST:event_BotonUsuariosActionPerformed
 
     /**

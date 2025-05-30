@@ -15,14 +15,14 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import org.hsqldb.types.Types;
 
-public class Usuarios extends javax.swing.JPanel {
+public class VentanaUsuarios extends javax.swing.JPanel {
 
     private Conexion conexion;
 
     /**
      * Creates new form Principal1
      */
-    public Usuarios() {
+    public VentanaUsuarios() {
 
         initComponents();
         conexion = new Conexion();

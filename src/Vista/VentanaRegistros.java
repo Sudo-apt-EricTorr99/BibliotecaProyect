@@ -30,14 +30,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author angel
  */
-public class Registro extends javax.swing.JPanel{
+public class VentanaRegistros extends javax.swing.JPanel{
 
     /**
      * Creates new form Principal1
      */
     private javax.swing.JTextArea TTA_Libros;
 
-    public Registro() {
+    public VentanaRegistros() {
         initComponents();
     }
 
@@ -53,7 +53,7 @@ public class Registro extends javax.swing.JPanel{
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         BotonParaEnlistarLibros = new javax.swing.JButton();
-        BotonParaEnlistarLibros2 = new javax.swing.JButton();
+        BotonParaEnlistarUsuarios = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         EnlistadoLibros = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -66,18 +66,18 @@ public class Registro extends javax.swing.JPanel{
         jLabel1.setText("Bienvenido al gestionador de la bibloteca");
 
         BotonParaEnlistarLibros.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        BotonParaEnlistarLibros.setText("Gestionar Usuarios");
+        BotonParaEnlistarLibros.setText("Gestionar Libros");
         BotonParaEnlistarLibros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonParaEnlistarLibrosActionPerformed(evt);
             }
         });
 
-        BotonParaEnlistarLibros2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        BotonParaEnlistarLibros2.setText("Gestionar LIbros");
-        BotonParaEnlistarLibros2.addActionListener(new java.awt.event.ActionListener() {
+        BotonParaEnlistarUsuarios.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        BotonParaEnlistarUsuarios.setText("Gestionar Usuarios");
+        BotonParaEnlistarUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonParaEnlistarLibros2ActionPerformed(evt);
+                BotonParaEnlistarUsuariosActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class Registro extends javax.swing.JPanel{
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotonParaEnlistarLibros2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BotonParaEnlistarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotonParaEnlistarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -129,13 +129,13 @@ public class Registro extends javax.swing.JPanel{
                         .addGap(73, 73, 73)
                         .addComponent(BotonParaEnlistarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(146, 146, 146)
-                        .addComponent(BotonParaEnlistarLibros2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BotonParaEnlistarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(114, 149, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(104, 104, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -179,16 +179,16 @@ public class Registro extends javax.swing.JPanel{
     }//GEN-LAST:event_BotonParaEnlistarLibrosActionPerformed
 
     //boton para enlistar  libros 
-    private void BotonParaEnlistarLibros2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarLibros2ActionPerformed
+    private void BotonParaEnlistarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarUsuariosActionPerformed
         // TODO add your handling code here:
        
 
-    }//GEN-LAST:event_BotonParaEnlistarLibros2ActionPerformed
+    }//GEN-LAST:event_BotonParaEnlistarUsuariosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonParaEnlistarLibros;
-    private javax.swing.JButton BotonParaEnlistarLibros2;
+    private javax.swing.JButton BotonParaEnlistarUsuarios;
     private javax.swing.JTextArea EnlistadoLibros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
