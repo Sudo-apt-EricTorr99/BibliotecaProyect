@@ -18,7 +18,7 @@ public class Conexion {
         conectar();
     }
 
-    private void conectar() {
+    public void conectar() {
         try {
             
             String rutafile = "C:\\Users\\ericr\\OneDrive\\Documents\\NetBeansProjects\\bibliotecaproyect\\DatabaseBiblio2.accdb";

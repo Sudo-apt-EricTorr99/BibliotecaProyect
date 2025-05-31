@@ -176,7 +176,7 @@ public class VentanaUsuarios extends javax.swing.JPanel {
                         .addComponent(jLabel4)
                         .addGap(41, 41, 41))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addGap(11, 11, 11)
                         .addComponent(jB_AgregarLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -287,8 +287,9 @@ public class VentanaUsuarios extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jB_AgregarLibro1ActionPerformed
 
+    //boton para agregar usuario 
     private void jB_AgregarLibro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AgregarLibro2ActionPerformed
-//boton para agregar usuario 
+
         String nombre = IdUsuario.getText();
         String apellidoPaterno = IDLibro1.getText();
         String apellidoMaterno = IDLibro2.getText();

@@ -4,6 +4,14 @@
  */
 package Vista;
 
+import Conexiones.Conexion;
+import Programa.OperacionesLibros;
+import java.awt.event.ActionEvent;
+//import java.util.Date;
+import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
+import java.sql.Date;  // <-- muy importante
+
 /**
  *
  * @author angel
@@ -31,19 +39,15 @@ public class VentanaLibros extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         IdUsuario = new javax.swing.JTextField();
-        IDLibro = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jB_AgregarLibro = new javax.swing.JButton();
         IDLibro1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        IDLibro2 = new javax.swing.JTextField();
         IDLibro3 = new javax.swing.JTextField();
         IDLibro4 = new javax.swing.JTextField();
-        jB_AgregarLibro1 = new javax.swing.JButton();
+        jB_EliminarLibro = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1020, 610));
@@ -56,13 +60,10 @@ public class VentanaLibros extends javax.swing.JPanel {
         jLabel1.setText("Bienvenido a libros de la bibloteca ");
 
         jLabel2.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
-        jLabel2.setText("Tirulo del Libro:");
+        jLabel2.setText("Nombre del Libro:");
 
         jLabel3.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
-        jLabel3.setText("Edicion del Libro:");
-
-        jLabel6.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
-        jLabel6.setText("Autor del Libro:");
+        jLabel3.setText("Id de Autor");
 
         jB_AgregarLibro.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jB_AgregarLibro.setText("Agregar Libro");
@@ -73,25 +74,22 @@ public class VentanaLibros extends javax.swing.JPanel {
         });
 
         jLabel7.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
-        jLabel7.setText("Año del Libro:");
+        jLabel7.setText("Fecha de Lanzamiento");
 
         jLabel8.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
-        jLabel8.setText("Editorial:");
+        jLabel8.setText("Id de Editorial:");
 
-        jLabel9.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
-        jLabel9.setText("ID del Libro:");
-
-        IDLibro2.addActionListener(new java.awt.event.ActionListener() {
+        IDLibro3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDLibro2ActionPerformed(evt);
+                IDLibro3ActionPerformed(evt);
             }
         });
 
-        jB_AgregarLibro1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
-        jB_AgregarLibro1.setText("Eliminar Libro");
-        jB_AgregarLibro1.addActionListener(new java.awt.event.ActionListener() {
+        jB_EliminarLibro.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jB_EliminarLibro.setText("Eliminar Libro");
+        jB_EliminarLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jB_AgregarLibro1ActionPerformed(evt);
+                jB_EliminarLibroActionPerformed(evt);
             }
         });
 
@@ -100,45 +98,46 @@ public class VentanaLibros extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(IDLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IDLibro4, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(IDLibro3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(21, 21, 21))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
+                        .addGap(89, 89, 89)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDLibro2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(IDLibro4, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(IDLibro3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 177, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jB_EliminarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addGap(21, 21, 21))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(IdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(IDLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 440, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(66, 66, 66))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(234, 234, 234)
-                        .addComponent(IdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jB_AgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(188, 188, 188)
-                        .addComponent(jB_AgregarLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(110, 110, 110)
+                .addComponent(jB_AgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -161,27 +160,22 @@ public class VentanaLibros extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(IDLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IDLibro2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IDLibro3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IDLibro4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IDLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jB_AgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jB_AgregarLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(144, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(IDLibro3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(IDLibro4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(153, 153, 153)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jB_AgregarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jB_EliminarLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -198,37 +192,50 @@ public class VentanaLibros extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    //boton pára agregar libro
     private void jB_AgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AgregarLibroActionPerformed
-        // TODO add your handling code here:
+
+        try {
+            String nombre = IdUsuario.getText();
+            int idAutor = Integer.parseInt(IDLibro1.getText());
+            int idEditorial = Integer.parseInt(IDLibro4.getText());
+
+            String fechaTexto = IDLibro3.getText().replace("/", "-").replace(".", "-");
+            Date fechaSQL = Date.valueOf(fechaTexto); // java.sql.Date
+
+            OperacionesLibros op = new OperacionesLibros();
+            op.agregarLibro(nombre, idAutor, idEditorial, fechaSQL);
+
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(null, "Fecha inválida. Usa el formato yyyy-MM-dd (por ejemplo, 2001-03-15)");
+        }
     }//GEN-LAST:event_jB_AgregarLibroActionPerformed
 
-    private void IDLibro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDLibro2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IDLibro2ActionPerformed
+    //boton para eliminar libro 
+    private void jB_EliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EliminarLibroActionPerformed
+        OperacionesLibros op = new OperacionesLibros();
+        op.eliminarLibro();
+    }//GEN-LAST:event_jB_EliminarLibroActionPerformed
 
-    private void jB_AgregarLibro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AgregarLibro1ActionPerformed
+    private void IDLibro3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDLibro3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jB_AgregarLibro1ActionPerformed
+    }//GEN-LAST:event_IDLibro3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField IDLibro;
     private javax.swing.JTextField IDLibro1;
-    private javax.swing.JTextField IDLibro2;
     private javax.swing.JTextField IDLibro3;
     private javax.swing.JTextField IDLibro4;
     private javax.swing.JTextField IdUsuario;
     private javax.swing.JButton jB_AgregarLibro;
-    private javax.swing.JButton jB_AgregarLibro1;
+    private javax.swing.JButton jB_EliminarLibro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
