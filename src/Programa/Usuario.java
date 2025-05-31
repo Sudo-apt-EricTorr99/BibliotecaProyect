@@ -13,12 +13,12 @@ import java.util.ArrayList;
 public class Usuario {
 
     private String nombre;
-    private int IdUsuario;
+    private int id_usuario;
     private ArrayList<String> librosPrestados;
 
-    public Usuario(String nombre, int IdUsuario) {
+    public Usuario(String nombre, int id_usuario) {
         this.nombre = nombre;
-        this.IdUsuario = IdUsuario;
+        this.id_usuario = id_usuario; // ✅ ahora sí está bien
         this.librosPrestados = new ArrayList<>();
     }
 
@@ -37,11 +37,19 @@ public class Usuario {
     }
 
     public int getIdUsuario() {
-        return IdUsuario;
+        return id_usuario;
     }
 
     public ArrayList<String> getLibrosPrestados() {
         return librosPrestados;
     }
 
+    // Setters
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setIdUsuario(int id_usuario) {
+        this.id_usuario = id_usuario;
+    }
 }

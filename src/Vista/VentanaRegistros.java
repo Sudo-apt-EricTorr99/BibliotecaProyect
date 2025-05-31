@@ -8,7 +8,6 @@ import Conexiones.Conexion;
 import java.awt.Color;
 import Conexiones.Conexion;
 import Programa.Material;
-import Programa.Registros;
 import Programa.RegistrosImpl;
 import Programa.Usuario;
 import java.sql.Connection;
@@ -25,12 +24,14 @@ import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import Programa.MetodosRegistrosLibros;
+import Programa.RegistrosImplementUsuarios;
 
 /**
  *
  * @author angel
  */
-public class VentanaRegistros extends javax.swing.JPanel{
+public class VentanaRegistros extends javax.swing.JPanel {
 
     /**
      * Creates new form Principal1
@@ -54,10 +55,10 @@ public class VentanaRegistros extends javax.swing.JPanel{
         jLabel1 = new javax.swing.JLabel();
         BotonParaEnlistarLibros = new javax.swing.JButton();
         BotonParaEnlistarUsuarios = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        EnlistadoLibros = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable2 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1020, 610));
@@ -81,12 +82,7 @@ public class VentanaRegistros extends javax.swing.JPanel{
             }
         });
 
-        EnlistadoLibros.setColumns(20);
-        EnlistadoLibros.setRows(5);
-        EnlistadoLibros.setText("Libros en la Biblioteca");
-        jScrollPane1.setViewportView(EnlistadoLibros);
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -97,7 +93,20 @@ public class VentanaRegistros extends javax.swing.JPanel{
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(jTable2);
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -112,12 +121,16 @@ public class VentanaRegistros extends javax.swing.JPanel{
                         .addGap(58, 58, 58)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(BotonParaEnlistarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonParaEnlistarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(7, 7, 7)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addContainerGap(59, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(BotonParaEnlistarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(359, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 612, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(49, 49, 49)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,16 +139,20 @@ public class VentanaRegistros extends javax.swing.JPanel{
                 .addComponent(jLabel1)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(BotonParaEnlistarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(146, 146, 146)
-                        .addComponent(BotonParaEnlistarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(3, 3, 3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(104, 104, Short.MAX_VALUE))
+                        .addGap(70, 70, 70))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(BotonParaEnlistarUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(186, 186, 186)
+                        .addComponent(BotonParaEnlistarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(146, Short.MAX_VALUE))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(61, 61, 61)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(324, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -159,29 +176,40 @@ public class VentanaRegistros extends javax.swing.JPanel{
     //boton para enlistar libros1 oficial 
     private void BotonParaEnlistarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarLibrosActionPerformed
         // TODO add your handling code here
-         try {
+        try {
             // Llamamos al método llenarTablaLibros de la clase RegistrosImpl
             RegistrosImpl regImpl = new RegistrosImpl();
             DefaultTableModel modelo = regImpl.llenarTablaLibros();
-            
+
             if (modelo != null) {
                 // Asignamos el modelo al JTable
-                jTable1.setModel(modelo);
+                jTable2.setModel(modelo);
             } else {
                 JOptionPane.showMessageDialog(this, "No se pudieron cargar los libros.", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(),
-                                          "Error", JOptionPane.ERROR_MESSAGE);
+                    "Error", JOptionPane.ERROR_MESSAGE);
         }
-    
+
 
     }//GEN-LAST:event_BotonParaEnlistarLibrosActionPerformed
 
-    //boton para enlistar  libros 
+    //boton para enlistar usuarios 
     private void BotonParaEnlistarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarUsuariosActionPerformed
         // TODO add your handling code here:
-       
+        try {
+            RegistrosImplementUsuarios regImpl = new RegistrosImplementUsuarios();
+            DefaultTableModel modelo = regImpl.llenarTablaUsuarios();
+
+            if (modelo != null) {
+                jTable4.setModel(modelo);  // Asegúrate de que jTable4 es el nombre correcto
+            } else {
+                JOptionPane.showMessageDialog(this, "No se pudieron cargar los usuarios.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
 
     }//GEN-LAST:event_BotonParaEnlistarUsuariosActionPerformed
 
@@ -189,11 +217,11 @@ public class VentanaRegistros extends javax.swing.JPanel{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonParaEnlistarLibros;
     private javax.swing.JButton BotonParaEnlistarUsuarios;
-    private javax.swing.JTextArea EnlistadoLibros;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable4;
     // End of variables declaration//GEN-END:variables
 }
