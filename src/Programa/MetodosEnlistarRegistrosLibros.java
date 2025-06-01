@@ -6,7 +6,7 @@ package Programa;
 
 import java.util.ArrayList;
 
-public interface MetodosRegistrosLibros {
+public interface MetodosEnlistarRegistrosLibros {
 
     public ArrayList<Usuario> listarUsuarios();
 

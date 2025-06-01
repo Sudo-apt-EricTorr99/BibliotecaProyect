@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class RegistrosImpl implements MetodosRegistrosLibros {
+public class RegistrosImpl implements MetodosEnlistarRegistrosLibros {
 
     public ArrayList<Material> listarLibros() {
         Conexion con = new Conexion();

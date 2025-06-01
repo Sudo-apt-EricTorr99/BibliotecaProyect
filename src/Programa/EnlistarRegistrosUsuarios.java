@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ericr
  */
-public class RegistrosImplementUsuarios implements MetodosEnlistUsers {
+public class EnlistarRegistrosUsuarios implements MetodosEnlistUsers {
 
     @Override
     public ArrayList<Usuario> listarUsuarios() {

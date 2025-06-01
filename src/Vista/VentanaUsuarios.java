@@ -9,6 +9,7 @@ package Vista;
  * @author angel
  */
 import Conexiones.Conexion;
+import Programa.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -42,83 +43,89 @@ public class VentanaUsuarios extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         IdUsuario = new javax.swing.JTextField();
-        IDLibro = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         IDLibro1 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         IDLibro2 = new javax.swing.JTextField();
         IDLibro3 = new javax.swing.JTextField();
         IDLibro4 = new javax.swing.JTextField();
         jB_AgregarLibro1 = new javax.swing.JButton();
         jB_AgregarLibro2 = new javax.swing.JButton();
 
+        setPreferredSize(new java.awt.Dimension(990, 500));
+
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1020, 610));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/LOGO UAEMEX.jpg"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/facultad.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, -1, 169));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Bienvenido a Usuarios de la bibloteca");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 11, 319, -1));
 
+        IdUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         IdUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IdUsuarioActionPerformed(evt);
             }
         });
+        jPanel1.add(IdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 250, 40));
 
-        IDLibro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDLibroActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Nombres:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 90, 33));
 
-        jLabel3.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
-        jLabel3.setText("Apellidos Paterno:");
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel3.setText("Apellido Paterno:");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
-        jLabel6.setText("Apellido Marterno.");
+        jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel6.setText("Apellido Marterno:");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, 20));
 
         IDLibro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDLibro1ActionPerformed(evt);
             }
         });
+        jPanel1.add(IDLibro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 257, 39));
 
         jLabel7.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
         jLabel7.setText("Edad:");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
         jLabel8.setText("Ocupacion:");
-
-        jLabel9.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
-        jLabel9.setText("ID del Usuario:");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
 
         IDLibro2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDLibro2ActionPerformed(evt);
             }
         });
+        jPanel1.add(IDLibro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 257, 39));
 
         IDLibro3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDLibro3ActionPerformed(evt);
             }
         });
+        jPanel1.add(IDLibro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 257, 39));
 
         IDLibro4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDLibro4ActionPerformed(evt);
             }
         });
+        jPanel1.add(IDLibro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 257, 39));
 
         jB_AgregarLibro1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jB_AgregarLibro1.setText("Eliminar Usuario");
@@ -127,6 +134,7 @@ public class VentanaUsuarios extends javax.swing.JPanel {
                 jB_AgregarLibro1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jB_AgregarLibro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 216, 67));
 
         jB_AgregarLibro2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jB_AgregarLibro2.setText("Agregar Usuario");
@@ -135,105 +143,17 @@ public class VentanaUsuarios extends javax.swing.JPanel {
                 jB_AgregarLibro2ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel3))
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDLibro2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDLibro3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDLibro4, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(IDLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jB_AgregarLibro2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
-                        .addComponent(jLabel5)
-                        .addGap(0, 87, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4)
-                        .addGap(41, 41, 41))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jB_AgregarLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IdUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IDLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(IDLibro2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IDLibro3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(IDLibro4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8))
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(IDLibro, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jB_AgregarLibro2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jB_AgregarLibro1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(87, Short.MAX_VALUE))
-        );
+        jPanel1.add(jB_AgregarLibro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 216, 67));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 991, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -244,46 +164,7 @@ public class VentanaUsuarios extends javax.swing.JPanel {
 
     private void jB_AgregarLibro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AgregarLibro1ActionPerformed
         // TODO add your handling code here:
-        //boton para eliminar usuario 
-        String idUsuario = IDLibro.getText();
-        if (idUsuario.isEmpty()) {
-            //panel o ventana que nme 
-            JOptionPane.showMessageDialog(this, "Por favor ingrese el ID del usuario a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        } // Confirmación antes de eliminar
-        int confirmacion = JOptionPane.showConfirmDialog(this,
-                "¿Está seguro que desea eliminar al usuario con ID: " + idUsuario + "?",
-                "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
-
-        if (confirmacion != JOptionPane.YES_OPTION) {
-            return;
-        }
-
-        try {
-            // Consulta SQL para eliminar el usuario
-            String sql = "DELETE FROM Usuario WHERE id_usuario = ?";
-
-            try (PreparedStatement ps = conexion.getConnection().prepareStatement(sql)) {
-                ps.setInt(1, Integer.parseInt(idUsuario));  // Convertir el ID a número
-
-                int filasAfectadas = ps.executeUpdate();
-
-                if (filasAfectadas > 0) {
-                    JOptionPane.showMessageDialog(this, "Usuario eliminado correctamente",
-                            "Éxito", JOptionPane.INFORMATION_MESSAGE);
-                    limpiarCampos();  // Método para limpiar los campos del formulario
-                } else {
-                    JOptionPane.showMessageDialog(this, "No se encontró el usuario con ID: " + idUsuario,
-                            "Advertencia", JOptionPane.WARNING_MESSAGE);
-                }
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error al eliminar usuario: " + e.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "El ID debe ser un número válido",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-        }
+        Usuario.eliminarUsuarioPorId();
 
     }//GEN-LAST:event_jB_AgregarLibro1ActionPerformed
 
@@ -295,35 +176,12 @@ public class VentanaUsuarios extends javax.swing.JPanel {
         String apellidoMaterno = IDLibro2.getText();
         String edad = IDLibro3.getText();
         String ocupacion = IDLibro4.getText();
-        String idUsuario = IDLibro.getText();
+        Usuario usuarioAgregado = Usuario.agregarUsuario(nombre, apellidoPaterno, apellidoMaterno, edad, ocupacion);
 
-        if (nombre.isEmpty() || apellidoPaterno.isEmpty() || idUsuario.isEmpty()
-                || !idUsuario.matches("\\d+")) { // Validar que id.usuario sea numérico
-            JOptionPane.showMessageDialog(this, "Por favor complete los campos obligatorios con datos válidos",
-                    "Error", JOptionPane.ERROR_MESSAGE);
-            return;
+        if (usuarioAgregado != null) {
+            // Si quieres usar el objeto después (ej. guardar en una lista), puedes hacerlo aquí.
         }
 
-        try {
-            String sql = "INSERT INTO Usuario (id_usuario, nombre, apellido_paterno, apellido_materno, edad, ocupacion) "
-                    + "VALUES (?, ?, ?, ?, ?, ?)";// 6 parámetros para 6 campos
-
-            try (PreparedStatement ps = conexion.getConnection().prepareStatement(sql)) {
-                ps.setInt(1, Integer.parseInt(idUsuario));  // Convertir a número
-                ps.setString(2, nombre);
-                ps.setString(3, apellidoPaterno);
-                ps.setString(4, apellidoMaterno);
-                ps.setObject(5, edad.isEmpty() ? null : Integer.valueOf(edad), Types.INTEGER);
-                ps.setString(6, ocupacion.isEmpty() ? null : ocupacion);
-
-                ps.executeUpdate();
-                JOptionPane.showMessageDialog(this, "Usuario agregado correctamente");
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Error al agregar usuario: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "ID y edad deben ser números válidos");
-        }
     }//GEN-LAST:event_jB_AgregarLibro2ActionPerformed
 
     private void IDLibro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDLibro1ActionPerformed
@@ -342,11 +200,6 @@ public class VentanaUsuarios extends javax.swing.JPanel {
         //espacio para poner la ocupacion de lusuario 
     }//GEN-LAST:event_IDLibro4ActionPerformed
 
-    private void IDLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDLibroActionPerformed
-        // TODO add your handling code here:
-        //espacio para poner el id del usuario 
-    }//GEN-LAST:event_IDLibroActionPerformed
-
     private void IdUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdUsuarioActionPerformed
         // TODO add your handling code here:
         //espacio para que pongan nombre del usuario 
@@ -354,7 +207,6 @@ public class VentanaUsuarios extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField IDLibro;
     private javax.swing.JTextField IDLibro1;
     private javax.swing.JTextField IDLibro2;
     private javax.swing.JTextField IDLibro3;
@@ -370,7 +222,6 @@ public class VentanaUsuarios extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 

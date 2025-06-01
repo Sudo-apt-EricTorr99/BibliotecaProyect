@@ -24,8 +24,8 @@ import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import Programa.MetodosRegistrosLibros;
-import Programa.RegistrosImplementUsuarios;
+import Programa.EnlistarRegistrosUsuarios;
+import Programa.MetodosEnlistarRegistrosLibros;
 
 /**
  *
@@ -199,7 +199,7 @@ public class VentanaRegistros extends javax.swing.JPanel {
     private void BotonParaEnlistarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarUsuariosActionPerformed
         // TODO add your handling code here:
         try {
-            RegistrosImplementUsuarios regImpl = new RegistrosImplementUsuarios();
+            EnlistarRegistrosUsuarios regImpl = new EnlistarRegistrosUsuarios();
             DefaultTableModel modelo = regImpl.llenarTablaUsuarios();
 
             if (modelo != null) {
