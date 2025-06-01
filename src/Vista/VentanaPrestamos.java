@@ -28,31 +28,23 @@ public class VentanaPrestamos extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         BotonRealizarPrestamo = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/facultad.png"))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(1020, 610));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/LOGO UAEMEX.jpg"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, 235, -1));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/facultad.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 90, 214, 213));
-
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setText("Prestamos de la bibloteca   ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 49, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI Light", 2, 14)); // NOI18N
-        jLabel12.setText("Recuerdale al usuario a quien se le presta el libro que tine como maximo 5 dias para regresar el libro para regresar el libro  o renovarlo, de lo contrario tendra una multa monetaria ");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 540, 40));
+        jLabel1.setText("Bienvenido a prestamos de la bibloteca ");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 24, -1, -1));
 
         BotonRealizarPrestamo.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         BotonRealizarPrestamo.setText("Realizar Prestamo");
@@ -61,19 +53,27 @@ public class VentanaPrestamos extends javax.swing.JPanel {
                 BotonRealizarPrestamoActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonRealizarPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 259, 80));
+        jPanel1.add(BotonRealizarPrestamo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 254, 67));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/facultad.png"))); // NOI18N
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, -1, 169));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setText("Estado para realizar un prestamo");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/LOGO UAEMEX.jpg"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -88,9 +88,10 @@ public class VentanaPrestamos extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonRealizarPrestamo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,33 +29,23 @@ public class VentanaDevoluciones extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jB_RealizarDevolucion = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1020, 610));
+        jPanel1.setPreferredSize(new java.awt.Dimension(990, 500));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/LOGO UAEMEX.jpg"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/facultad.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Bienvenido a Devoluciones de la bibloteca");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 32, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 24, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
-        jLabel2.setText("Estado de la devolucion (En este apartado va parecer el estado)");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 360, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Symbol", 2, 14)); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(827, 447, 357, 81));
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        jLabel2.setText("Estado para realizar una devolucón ");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 140, -1, 30));
 
         jB_RealizarDevolucion.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jB_RealizarDevolucion.setText("Realizar devolución");
@@ -64,15 +54,19 @@ public class VentanaDevoluciones extends javax.swing.JPanel {
                 jB_RealizarDevolucionActionPerformed(evt);
             }
         });
-        jPanel1.add(jB_RealizarDevolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 254, 67));
+        jPanel1.add(jB_RealizarDevolucion, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 254, 67));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/facultad.png"))); // NOI18N
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, -1, 169));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/imagenes/LOGO UAEMEX.jpg"))); // NOI18N
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,7 +86,6 @@ public class VentanaDevoluciones extends javax.swing.JPanel {
     private javax.swing.JButton jB_RealizarDevolucion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

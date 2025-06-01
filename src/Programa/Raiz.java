@@ -88,7 +88,7 @@ public class Raiz extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("SimSun-ExtB", 0, 12)); // NOI18N
 
-        Texto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Texto.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Texto.setForeground(new java.awt.Color(51, 51, 51));
         Texto.setText("Falculdad de ingeneria/control/biblioteca");
 
@@ -197,8 +197,8 @@ public class Raiz extends javax.swing.JFrame {
                         .addComponent(BotonLibros, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 223, Short.MAX_VALUE)
+                        .addComponent(Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 222, Short.MAX_VALUE)
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
                                 .addComponent(jLabel1)

@@ -69,7 +69,7 @@ public class VentanaUsuarios extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Bienvenido a Usuarios de la bibloteca");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 11, 319, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 24, -1, -1));
 
         IdUsuario.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         IdUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -77,11 +77,11 @@ public class VentanaUsuarios extends javax.swing.JPanel {
                 IdUsuarioActionPerformed(evt);
             }
         });
-        jPanel1.add(IdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 250, 40));
+        jPanel1.add(IdUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 260, 40));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel2.setText("Nombres:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 90, 33));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 90, 33));
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel3.setText("Apellido Paterno:");
@@ -96,13 +96,13 @@ public class VentanaUsuarios extends javax.swing.JPanel {
                 IDLibro1ActionPerformed(evt);
             }
         });
-        jPanel1.add(IDLibro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 257, 39));
+        jPanel1.add(IDLibro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 260, 40));
 
-        jLabel7.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel7.setText("Edad:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("SimSun", 2, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setText("Ocupacion:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
 
@@ -111,21 +111,21 @@ public class VentanaUsuarios extends javax.swing.JPanel {
                 IDLibro2ActionPerformed(evt);
             }
         });
-        jPanel1.add(IDLibro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 257, 39));
+        jPanel1.add(IDLibro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 180, 260, 40));
 
         IDLibro3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDLibro3ActionPerformed(evt);
             }
         });
-        jPanel1.add(IDLibro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 257, 39));
+        jPanel1.add(IDLibro3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 260, 40));
 
         IDLibro4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IDLibro4ActionPerformed(evt);
             }
         });
-        jPanel1.add(IDLibro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 257, 39));
+        jPanel1.add(IDLibro4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 260, 40));
 
         jB_AgregarLibro1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jB_AgregarLibro1.setText("Eliminar Usuario");
