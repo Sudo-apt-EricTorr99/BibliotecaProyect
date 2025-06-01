@@ -24,12 +24,19 @@ public class EnlistarRegistrosUsuarios implements MetodosEnlistUsers {
         ArrayList<Usuario> listado = new ArrayList<>();
 
         if (con.estaConectado()) {
-            String query = "SELECT id_usuario AS id, Nombre AS nombre FROM Usuario";
+            String query = "SELECT id_usuario AS id, nombre, apellido_paterno, apellido_materno, edad, ocupacion FROM Usuario";
 
             try (Statement stmt = con.getConnection().createStatement(); ResultSet rs = stmt.executeQuery(query)) {
 
                 while (rs.next()) {
-                    Usuario user = new Usuario(rs.getString("nombre"), rs.getInt("id"));
+                    Usuario user = new Usuario(
+                            rs.getString("nombre"),
+                            rs.getInt("id"),
+                            rs.getString("apellido_paterno"),
+                            rs.getString("apellido_materno"),
+                            rs.getInt("edad"),
+                            rs.getString("ocupacion")
+                    );
                     listado.add(user);
                 }
 
@@ -43,15 +50,19 @@ public class EnlistarRegistrosUsuarios implements MetodosEnlistUsers {
 
     public DefaultTableModel llenarTablaUsuarios() {
         try {
-            ArrayList<Usuario> usuarios = listarUsuarios();  // reutilizas tu método que ya conecta y obtiene los datos
+            ArrayList<Usuario> usuarios = listarUsuarios();
 
             DefaultTableModel modelo = new DefaultTableModel(
-                    new Object[]{"ID", "Nombre"}, 0);
+                    new Object[]{"ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Edad", "Ocupación"}, 0);
 
             for (Usuario user : usuarios) {
                 modelo.addRow(new Object[]{
-                    user.getIdUsuario(),
-                    user.getNombre()
+                    //user.getIdUsuario(),
+                    user.getNombre(),
+                    user.getApellidoPaterno(),
+                    user.getApellidoMaterno(),
+                    user.getEdad(),
+                    user.getOcupacion()
                 });
             }
 
@@ -65,7 +76,7 @@ public class EnlistarRegistrosUsuarios implements MetodosEnlistUsers {
 
     @Override
     public String darFormato(ArrayList<Material> materiales) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }

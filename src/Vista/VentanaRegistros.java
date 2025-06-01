@@ -7,6 +7,7 @@ package Vista;
 import Conexiones.Conexion;
 import java.awt.Color;
 import Conexiones.Conexion;
+import Programa.EnlistarLibros;
 import Programa.Material;
 import Programa.RegistrosImpl;
 import Programa.Usuario;
@@ -26,6 +27,7 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import Programa.EnlistarRegistrosUsuarios;
 import Programa.MetodosEnlistarRegistrosLibros;
+import Programa.MostrarUsuariosDetallados;
 
 /**
  *
@@ -75,7 +77,7 @@ public class VentanaRegistros extends javax.swing.JPanel {
                 BotonParaEnlistarLibrosActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonParaEnlistarLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 254, 67));
+        jPanel1.add(BotonParaEnlistarLibros, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 254, 67));
 
         BotonParaEnlistarUsuarios.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         BotonParaEnlistarUsuarios.setText("Gestionar Usuarios");
@@ -84,7 +86,7 @@ public class VentanaRegistros extends javax.swing.JPanel {
                 BotonParaEnlistarUsuariosActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonParaEnlistarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 254, 67));
+        jPanel1.add(BotonParaEnlistarUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 254, 67));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,21 +132,16 @@ public class VentanaRegistros extends javax.swing.JPanel {
 
     //boton para enlistar libros1 oficial 
     private void BotonParaEnlistarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarLibrosActionPerformed
-        // TODO add your handling code here
         try {
-            // Llamamos al método llenarTablaLibros de la clase RegistrosImpl
-            RegistrosImpl regImpl = new RegistrosImpl();
-            DefaultTableModel modelo = regImpl.llenarTablaLibros();
-
-            if (modelo != null) {
-                // Asignamos el modelo al JTable
+            EnlistarLibros enlistador = new EnlistarLibros();
+            DefaultTableModel modelo = (DefaultTableModel) enlistador.obtenerModeloLibros();
+            if (modelo != null && modelo.getRowCount() > 0) {
                 jTable2.setModel(modelo);
             } else {
-                JOptionPane.showMessageDialog(this, "No se pudieron cargar los libros.", "Error", JOptionPane.ERROR_MESSAGE);
+                javax.swing.JOptionPane.showMessageDialog(this, "No se encontraron libros en la base de datos.");
             }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Error al mostrar libros: " + ex.getMessage());
         }
 
 
@@ -152,20 +149,17 @@ public class VentanaRegistros extends javax.swing.JPanel {
 
     //boton para enlistar usuarios 
     private void BotonParaEnlistarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarUsuariosActionPerformed
-        // TODO add your handling code here:
         try {
-            EnlistarRegistrosUsuarios regImpl = new EnlistarRegistrosUsuarios();
-            DefaultTableModel modelo = regImpl.llenarTablaUsuarios();
-
-            if (modelo != null) {
-                jTable4.setModel(modelo);  // Asegúrate de que jTable4 es el nombre correcto
+            MostrarUsuariosDetallados mostrar = new MostrarUsuariosDetallados();
+            DefaultTableModel modelo = mostrar.obtenerModeloUsuariosDetallado();
+            if (modelo != null && modelo.getRowCount() > 0) {
+                jTable4.setModel(modelo);
             } else {
-                JOptionPane.showMessageDialog(this, "No se pudieron cargar los usuarios.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "No se encontraron usuarios.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_BotonParaEnlistarUsuariosActionPerformed
 
 

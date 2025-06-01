@@ -92,7 +92,8 @@ public class Raiz extends javax.swing.JFrame {
         Texto.setForeground(new java.awt.Color(51, 51, 51));
         Texto.setText("Falculdad de ingeneria/control/biblioteca");
 
-        Fecha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        Fecha.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        Fecha.setForeground(new java.awt.Color(0, 0, 0));
 
         BotonUsuarios.setBackground(new java.awt.Color(204, 204, 204));
         BotonUsuarios.setFont(new java.awt.Font("Segoe UI Black", 1, 12)); // NOI18N

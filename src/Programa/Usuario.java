@@ -17,11 +17,26 @@ public class Usuario {
 
     private String nombre;
     private int id_usuario;
+    private String apellidoPaterno;
+    private String apellidoMaterno;
+    private int edad;
+    private String ocupacion;
     private ArrayList<String> librosPrestados;
 
     public Usuario(String nombre, int id_usuario) {
         this.nombre = nombre;
         this.id_usuario = id_usuario;
+        this.librosPrestados = new ArrayList<>();
+    }
+    // Constructor para agregar desde BD
+
+    public Usuario(String nombre, int id_usuario, String apellidoPaterno, String apellidoMaterno, int edad, String ocupacion) {
+        this.nombre = nombre;
+        this.id_usuario = id_usuario;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.edad = edad;
+        this.ocupacion = ocupacion;
         this.librosPrestados = new ArrayList<>();
     }
 
@@ -110,26 +125,66 @@ public class Usuario {
     public void devolverLibro(String libro) {
         librosPrestados.remove(libro);
     }
+    //setter y getter 
 
-// Getters y setters
     public String getNombre() {
         return nombre;
-    }
-
-    public int getIdUsuario() {
-        return id_usuario;
-    }
-
-    public ArrayList<String> getLibrosPrestados() {
-        return librosPrestados;
     }
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public void setIdUsuario(int id_usuario) {
+    public int getId_usuario() {
+        return id_usuario;
+    }
+
+    public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
+    }
+
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
+    }
+
+    public ArrayList<String> getLibrosPrestados() {
+        return librosPrestados;
+    }
+
+    public void setLibrosPrestados(ArrayList<String> librosPrestados) {
+        this.librosPrestados = librosPrestados;
+    }
+
+    String getIdUsuario() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
 }
