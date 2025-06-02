@@ -68,8 +68,8 @@ El código está comentado para facilitar su entendimiento y modificación.
 🚀 Autores
 Hecho por:
 
-Eric Uriel Rojas Torres
+-Eric Uriel Rojas Torres
 
-Miguel Ángel Medina Aguilar
+-Miguel Ángel Medina Aguilar
 
 Estudiantes de Ingeniería en Computación 💻
