@@ -76,7 +76,7 @@ public class VentanaDevoluciones extends javax.swing.JPanel {
 
     //boton pra realizar  la devolucion
     private void jB_RealizarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_RealizarDevolucionActionPerformed
-        // TODO add your handling code here:
+
         OperacionesPrestamos op = new OperacionesPrestamos();
         op.realizarDevolucion();
     }//GEN-LAST:event_jB_RealizarDevolucionActionPerformed

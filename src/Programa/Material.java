@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Programa;
+
 import java.sql.*;
 
 /**
@@ -10,16 +11,19 @@ import java.sql.*;
  * @author ericr
  */
 public class Material {
-    private int id;
-    private String nombre;
-    private int anio;
+
+    //atributos que pueden servir para entidades de material 
+    private int id; //id unico del material que viene de la base de datos 
+    private String nombre; //nomber geberico 
+    private int anio; // año 
     private String editorial;
     private String titulo;
     private String autor;
     private int anioPublicacion;
 
     // Constructor para RegistrosImpl
-    public Material() {} // Constructor vacío necesario
+    public Material() {
+    } // Constructor vacío necesario
 
     // Constructor para tu lógica actual
     public Material(String titulo, String autor, int anioPublicacion) {

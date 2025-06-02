@@ -127,16 +127,17 @@ public class VentanaLibros extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    //boton pára agregar libro
+    //boton para agregar libro
     private void jB_AgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AgregarLibroActionPerformed
 
+        //llamamos a el metodo que tiene la logica 
         try {
             String nombre = IdUsuario.getText();
             int idAutor = Integer.parseInt(IDLibro1.getText());
             int idEditorial = Integer.parseInt(IDLibro4.getText());
 
             String fechaTexto = IDLibro3.getText().replace("/", "-").replace(".", "-");
-            Date fechaSQL = Date.valueOf(fechaTexto); // java.sql.Date
+            Date fechaSQL = Date.valueOf(fechaTexto); 
 
             OperacionesLibros op = new OperacionesLibros();
             op.agregarLibro(nombre, idAutor, idEditorial, fechaSQL);
@@ -148,7 +149,7 @@ public class VentanaLibros extends javax.swing.JPanel {
 
     //boton para eliminar libro 
     private void jB_EliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EliminarLibroActionPerformed
-        OperacionesLibros op = new OperacionesLibros();
+        OperacionesLibros op = new OperacionesLibros();//llamamos a el metodo que tiene la logica 
         op.eliminarLibro();
     }//GEN-LAST:event_jB_EliminarLibroActionPerformed
 

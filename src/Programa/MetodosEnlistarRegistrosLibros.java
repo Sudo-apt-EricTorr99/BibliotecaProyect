@@ -10,5 +10,5 @@ public interface MetodosEnlistarRegistrosLibros {
 
     public ArrayList<Usuario> listarUsuarios();
 
-    public String darFormato(ArrayList<Material> materiales); // si luego quieres hacer algo con Material
+    public String darFormato(ArrayList<Material> materiales); 
 }

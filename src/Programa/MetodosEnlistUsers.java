@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public interface MetodosEnlistUsers {
 
-    ArrayList<Usuario> listarUsuarios(); // Porque devuelves usuarios, no materiales
+    ArrayList<Usuario> listarUsuarios(); 
 
-    String darFormato(ArrayList<Material> materiales); // Este lo puedes dejar por ahora
+    String darFormato(ArrayList<Material> materiales); 
 }

@@ -8,7 +8,7 @@ import Vista.VentanaDevoluciones;
 import Vista.VentanaLibros;
 import Vista.VentanaPrestamos;
 import Vista.Principal1;
-import Vista.VentanaRegistros; 
+import Vista.VentanaRegistros;
 import Vista.VentanaUsuarios;
 import java.awt.BorderLayout;
 import java.time.LocalDate;
@@ -26,37 +26,42 @@ public class Raiz extends javax.swing.JFrame {
     /**
      * Creates new form Raiz
      */
-     public Raiz() {
+    public Raiz() {
         initComponents();   // Inicializa los componentes del formulario
         startClock();       // Inicia el reloj en tiempo real
         inicioPanel();      // Carga el panel inicial
+
     }
-    private void inicioPanel(){
+
+    private void inicioPanel() {
         showPanel(new Principal1());
+
     }
+
     //Esta parte del codigo hace que se muestre la ventana  en un panel y lo hice un metodo
-    private void showPanel(JPanel p){
+    private void showPanel(JPanel p) {
         p.setSize(1020, 610);
-        p.setLocation(0,0);
-        
+        p.setLocation(0, 0);
+
         contenido.removeAll();
         contenido.add(p, BorderLayout.CENTER);
         contenido.revalidate();
         contenido.repaint();
-    }   
-       LocalDate now = LocalDate.now();     
-     //para mostrar la hora 
-      // Inicia un reloj que actualiza cada segundo
+    }
+    LocalDate now = LocalDate.now();
+    //para mostrar la hora 
+    // Inicia un reloj que actualiza cada segundo
+
     private void startClock() {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("  dd/MM/yy     HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("  dd/MM/yy     HH:mm:ss");
 
-    Timer timer = new Timer(1000, e -> {
-        LocalDateTime now = LocalDateTime.now();
-        Fecha.setText(now.format(formatter));
-    });
+        Timer timer = new Timer(1000, e -> {
+            LocalDateTime now = LocalDateTime.now();
+            Fecha.setText(now.format(formatter));
+        });
 
-    timer.start();
-}
+        timer.start();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -183,10 +188,10 @@ public class Raiz extends javax.swing.JFrame {
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+                .addComponent(contenido, javax.swing.GroupLayout.DEFAULT_SIZE, 978, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(43, 43, 43)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuLayout.createSequentialGroup()
                         .addComponent(BotonVentanaPrincipal1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -311,9 +316,8 @@ public class Raiz extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonUsuariosActionPerformed
 
     /**
-     * @param args the command line arguments 
+     * @param args the command line arguments
      */
-    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

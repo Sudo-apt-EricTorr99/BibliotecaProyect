@@ -15,8 +15,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-//import com.healthmarketscience.jackcess.crypt.CryptCodecProvider;
-
 import java.awt.Font;
 import java.io.IOException;
 import java.sql.ResultSet;
