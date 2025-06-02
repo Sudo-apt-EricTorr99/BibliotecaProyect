@@ -1,6 +1,6 @@
 📚 Sistema de Biblioteca en Java
 
-Este es un proyecto hecho en Java que simula el sistema de una biblioteca. Fue desarrollado como parte de nuestras prácticas de programación. El sistema permite gestionar libros y usuarios, hacer préstamos y devoluciones, y conectar todo con una base de datos en Access (.accdb).
+Este es un proyecto hecho en Java que simula el sistema de una biblioteca. Fue desarrollado como parte de nuestro proyecto de programación II. El sistema permite gestionar libros y usuarios, hacer préstamos y devoluciones, y conectar todo con una base de datos en Access (.accdb).
 
 🔗 Repositorio del proyecto:
 👉 https://github.com/Sudo-apt-EricTorr99/BibliotecaProyect.git
