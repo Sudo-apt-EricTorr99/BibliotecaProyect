@@ -16,11 +16,11 @@ public class OperacionesPrestamos {
 
     public void realizarDevolucion() {
         try {
-            // Pedir datos
+            //pedir datos
             String inputUsuario = JOptionPane.showInputDialog(null, "Introduce el ID del usuario:");
             String inputLibro = JOptionPane.showInputDialog(null, "Introduce el ID del libro:");
 
-            // Validar entradas
+            //validar entradas
             if (inputUsuario == null || inputLibro == null
                     || inputUsuario.trim().isEmpty() || inputLibro.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Operación cancelada.");
@@ -52,18 +52,17 @@ public class OperacionesPrestamos {
         }
     }
 
-    //metodo pára hacer un prestamo
-    // Método para hacer un préstamo
+    //metodo para hacer un prestamo
     public void realizarPrestamo() {
         try {
-            // Solicita el ID del usuario
+            //solicita el ID del usuario
             String inputUsuario = JOptionPane.showInputDialog(null, "Introduce el ID del usuario:");
             if (inputUsuario == null || inputUsuario.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Operación cancelada.");
                 return;
             }
 
-            // Solicita el ID del libro
+            //solicita el ID del libro
             String inputLibro = JOptionPane.showInputDialog(null, "Introduce el ID del libro:");
             if (inputLibro == null || inputLibro.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Operación cancelada.");
@@ -80,7 +79,7 @@ public class OperacionesPrestamos {
                 stmt.setInt(1, idUsuario);
                 stmt.setInt(2, idLibro);
 
-                // Obtener fecha actual como java.sql.Date
+                //obtener fecha actual 
                 java.sql.Date fechaActual = new java.sql.Date(System.currentTimeMillis());
                 stmt.setDate(3, fechaActual);
 

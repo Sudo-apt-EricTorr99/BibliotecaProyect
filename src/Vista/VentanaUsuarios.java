@@ -10,11 +10,6 @@ package Vista;
  */
 import Conexiones.Conexion;
 import Programa.Usuario;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
-import org.hsqldb.types.Types;
 
 public class VentanaUsuarios extends javax.swing.JPanel {
 
@@ -179,7 +174,6 @@ public class VentanaUsuarios extends javax.swing.JPanel {
         Usuario usuarioAgregado = Usuario.agregarUsuario(nombre, apellidoPaterno, apellidoMaterno, edad, ocupacion);
 
         if (usuarioAgregado != null) {
-            // Si quieres usar el objeto después (ej. guardar en una lista), puedes hacerlo aquí.
         }
 
     }//GEN-LAST:event_jB_AgregarLibro2ActionPerformed

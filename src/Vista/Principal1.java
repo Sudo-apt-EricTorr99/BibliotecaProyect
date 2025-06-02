@@ -78,7 +78,7 @@ public class Principal1 extends javax.swing.JPanel {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, -1, 169));
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel10.setText("devoluciones de libros,ncluyendo la gestión de usuarios  registrados");
+        jLabel10.setText("devoluciones de libros, incluyendo la gestión de usuarios  registrados");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 460, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

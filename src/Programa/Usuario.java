@@ -28,8 +28,8 @@ public class Usuario {
         this.id_usuario = id_usuario;
         this.librosPrestados = new ArrayList<>();
     }
-    // Constructor para agregar desde BD
 
+    //constructor para agregar desde BD
     public Usuario(String nombre, int id_usuario, String apellidoPaterno, String apellidoMaterno, int edad, String ocupacion) {
         this.nombre = nombre;
         this.id_usuario = id_usuario;
@@ -40,7 +40,7 @@ public class Usuario {
         this.librosPrestados = new ArrayList<>();
     }
 
-// Método para agregar un nuevo usuario a la base de datos
+    // metodo para agregar un nuevo usuario a la base de datos
     public static Usuario agregarUsuario(String nombre, String apellidoPaterno, String apellidoMaterno, String edad, String ocupacion) {
         Conexion conexion = new Conexion();
         Usuario nuevoUsuario = null;

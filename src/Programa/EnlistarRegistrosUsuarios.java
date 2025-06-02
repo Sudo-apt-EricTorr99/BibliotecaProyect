@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ericr
  */
-//implementamos los metoo¿dos paera enlistar desde la base de datos y mostrar en la tabla 
+//implementamos los metodos paera enlistar desde la base de datos y mostrar en la tabla 
 public class EnlistarRegistrosUsuarios implements MetodosEnlistUsers {
 
     //metodo que consulta todos los usuarios registardos en la base de datos 
@@ -59,7 +59,7 @@ public class EnlistarRegistrosUsuarios implements MetodosEnlistUsers {
         return listado;
     }
 
-    //metodo para llenar undefault con los datps de los usuarios 
+    //metodo para llenar un tabledefault con los datos de los usuarios 
     public DefaultTableModel llenarTablaUsuarios() {
         try {
             //obtenemos la lista de usuarios desde la base de datos 

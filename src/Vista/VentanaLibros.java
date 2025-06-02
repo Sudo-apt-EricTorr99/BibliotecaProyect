@@ -10,7 +10,7 @@ import java.awt.event.ActionEvent;
 //import java.util.Date;
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
-import java.sql.Date;  // <-- muy importante
+import java.sql.Date;  
 
 /**
  *

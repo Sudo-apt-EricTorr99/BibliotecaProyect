@@ -21,7 +21,7 @@ public class OperacionesLibros {
     //agregamos un libro nuevo a la base de datos  
     public void agregarLibro(String nombre, int idAutor, int idEditorial, Date fechaLanzamiento) {
         Conexion conexion = new Conexion(); //creamos la conexion 
-        //esta es una consulta SQL con placeholders para evitar  una inyeccion
+        //esta es una consulta SQL con placeholders para evitar  una inyeccion jaj
         String sql = "INSERT INTO Libros (Nombre, Id_Autor, Id_Editorial, Fecha_Lanzamiento) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = conexion.getConnection().prepareStatement(sql)) {
@@ -52,7 +52,7 @@ public class OperacionesLibros {
                 return;
             }
 
-            int idLibro = Integer.parseInt(input.trim()); //convierte a un numero 
+            int idLibro = Integer.parseInt(input.trim()); //convierte a un numero   
 
             Conexion conexion = new Conexion();
             try (Connection conn = conexion.getConnection(); PreparedStatement stmt = conn.prepareStatement("DELETE FROM Libros WHERE Id_Libro = ?")) {
@@ -69,7 +69,7 @@ public class OperacionesLibros {
             }
 
         } catch (NumberFormatException e) {
-            //si no sladra unerror 
+            //si no saldra un error 
             JOptionPane.showMessageDialog(null, "ID inválido. Introduce un número entero.");
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al eliminar libro: " + e.getMessage());

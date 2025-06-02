@@ -4,27 +4,9 @@
  */
 package Vista;
 
-import Conexiones.Conexion;
-import java.awt.Color;
-import Conexiones.Conexion;
 import Programa.EnlistarLibros;
-import Programa.Material;
-import Programa.RegistrosImpl;
-import Programa.Usuario;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import java.awt.Font;
-import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.PreparedStatement;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import Programa.EnlistarRegistrosUsuarios;
-import Programa.MetodosEnlistarRegistrosLibros;
 import Programa.MostrarUsuariosDetallados;
 
 /**

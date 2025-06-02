@@ -4,8 +4,6 @@
  */
 package Programa;
 
-import java.sql.*;
-
 /**
  *
  * @author ericr

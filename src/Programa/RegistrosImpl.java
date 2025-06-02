@@ -56,7 +56,7 @@ public class RegistrosImpl implements MetodosEnlistarRegistrosLibros {
         return sb.toString();
     }
 
-    // Método que llena el modelo de la tabla con los datos de los libros
+    //método que llena el modelo de la tabla con los datos de los libros
     public DefaultTableModel llenarTablaLibros() {
         try {
             ArrayList<Material> libros = listarLibros();  // Obtener los libros desde la base de datos

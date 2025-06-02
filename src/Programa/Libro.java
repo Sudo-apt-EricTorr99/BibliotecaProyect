@@ -13,7 +13,7 @@ public class Libro extends Material {
 
     //constuctor que revibe los datos y los pasa a la superclase Material 
     public Libro(String titulo, String autor, int anioPublicacion) {
-        super(titulo, autor, anioPublicacion); // Llama al constructor de la superclase
+        super(titulo, autor, anioPublicacion); //llama al constructor de la superclase
     }
 
     //metodo sobreescrito para mostrar los detakkkes dek libro en consola

@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
 
-    private Connection con = null;  // Cambiado a 'con' para consistencia
+    private Connection con = null;  
     private Statement st = null;
 
     public Conexion() {
@@ -55,7 +55,7 @@ public class Conexion {
         }
     }
 
-    // Método para verificar si la conexión está activa
+    //metodo para verificar si la conexion esta activa
     public boolean estaConectado() {
         try {
             return con != null && !con.isClosed();
