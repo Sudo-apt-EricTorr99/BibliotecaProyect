@@ -110,16 +110,21 @@ public class VentanaRegistros extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    //boton para enlistar libros1 oficial 
+    // Este método se ejecuta cuando se da clic al botón "Gestionar Libros"
     private void BotonParaEnlistarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarLibrosActionPerformed
         try {
+            // Creamos un objeto de la clase que tiene la lógica para obtener los libros
             EnlistarLibros enlistador = new EnlistarLibros();
+            // Obtenemos el modelo de tabla con los datos de los libros desde la base de datos
             DefaultTableModel modelo = (DefaultTableModel) enlistador.obtenerModeloLibros();
+            // Si el modelo no está vacío, lo mostramos en la tabla jTable2
             if (modelo != null && modelo.getRowCount() > 0) {
                 jTable2.setModel(modelo);
+                // Si no hay datos, se muestra un mensaje al usuario
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "No se encontraron libros en la base de datos.");
             }
+            // Si algo falla (por ejemplo, error de conexión), se muestra un mensaje de error
         } catch (Exception ex) {
             javax.swing.JOptionPane.showMessageDialog(this, "Error al mostrar libros: " + ex.getMessage());
         }
@@ -129,14 +134,18 @@ public class VentanaRegistros extends javax.swing.JPanel {
 
     //boton para enlistar usuarios 
     private void BotonParaEnlistarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarUsuariosActionPerformed
-        try {
+        try {  // Creamos un objeto de la clase que contiene la lógica para obtener usuarios detallados
             MostrarUsuariosDetallados mostrar = new MostrarUsuariosDetallados();
+            // Obtenemos el modelo de tabla con los datos de los usuarios
             DefaultTableModel modelo = mostrar.obtenerModeloUsuariosDetallado();
+            // Si el modelo tiene datos, lo mostramos en la tabla jTable4
             if (modelo != null && modelo.getRowCount() > 0) {
                 jTable4.setModel(modelo);
             } else {
+                // Si no hay usuarios en la base de datos, se notifica al usuario
                 JOptionPane.showMessageDialog(this, "No se encontraron usuarios.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
             }
+             // Si hay algún error, lo mostramos con detalles
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }

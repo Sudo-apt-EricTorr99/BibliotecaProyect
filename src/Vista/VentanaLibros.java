@@ -4,13 +4,9 @@
  */
 package Vista;
 
-import Conexiones.Conexion;
-import Programa.OperacionesLibros;
-import java.awt.event.ActionEvent;
-//import java.util.Date;
+import Programa.OperacionesLibros; // Aquí está la lógica para agregar y eliminar libros
 import javax.swing.JOptionPane;
-import java.text.SimpleDateFormat;
-import java.sql.Date;  
+import java.sql.Date;
 
 /**
  *
@@ -22,7 +18,7 @@ public class VentanaLibros extends javax.swing.JPanel {
      * Creates new form Principal1
      */
     public VentanaLibros() {
-        initComponents();
+        initComponents(); // Método que construye toda la interfaz gráfica
     }
 
     /**
@@ -128,28 +124,42 @@ public class VentanaLibros extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     //boton para agregar libro
+    //el metodo que se ejecuta cuando el usuario hace clic en el botón 
     private void jB_AgregarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AgregarLibroActionPerformed
 
-        //llamamos a el metodo que tiene la logica 
+        // Usamos try-catch para manejar errores si el usuario mete datos inválidos
         try {
+            // Obtenemos el texto del campo donde se escribe el nombre del libro
             String nombre = IdUsuario.getText();
+            // Obtenemos y convertimos el ID del autor a entero (porque viene como texto)
             int idAutor = Integer.parseInt(IDLibro1.getText());
+            // Obtenemos y convertimos el ID de la editorial a entero
             int idEditorial = Integer.parseInt(IDLibro4.getText());
 
+            // Obtenemos la fecha como texto, y reemplazamos "/" o "." por guiones
+            // para que quede en formato yyyy-MM-dd (lo que necesita SQL)
             String fechaTexto = IDLibro3.getText().replace("/", "-").replace(".", "-");
-            Date fechaSQL = Date.valueOf(fechaTexto); 
+            // Convertimos el texto ya corregido a un objeto de tipo Date (java.sql.Date)
+            Date fechaSQL = Date.valueOf(fechaTexto);
 
+            // Creamos una instancia de la clase que tiene la lógica para guardar libros
             OperacionesLibros op = new OperacionesLibros();
+            // Llamamos al método que guarda el libro en la base de datos, pasándole los datos
             op.agregarLibro(nombre, idAutor, idEditorial, fechaSQL);
 
         } catch (IllegalArgumentException ex) {
+            // Si ocurre un error (por ejemplo, fecha mal escrita), mostramos un mensaje
             JOptionPane.showMessageDialog(null, "Fecha inválida. Usa el formato yyyy-MM-dd (por ejemplo, 2001-03-15)");
         }
     }//GEN-LAST:event_jB_AgregarLibroActionPerformed
 
-    //boton para eliminar libro 
+    //boton para eliminar libro  
+    // Método que se ejecuta cuando se hace clic en el botón "Eliminar Libro"
     private void jB_EliminarLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_EliminarLibroActionPerformed
-        OperacionesLibros op = new OperacionesLibros();//llamamos a el metodo que tiene la logica 
+        
+    // Creamos una nueva instancia de la clase que contiene la lógica para manejar los libros
+        OperacionesLibros op = new OperacionesLibros(); 
+         // Llamamos al método que se encarga de eliminar un libro de la base de datos
         op.eliminarLibro();
     }//GEN-LAST:event_jB_EliminarLibroActionPerformed
 

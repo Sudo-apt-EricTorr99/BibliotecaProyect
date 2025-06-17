@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Vista;
+// Importamos la clase que contiene la lógica de los préstamos
 
 import Operaciones.OperacionesPrestamos;
 
@@ -15,8 +16,9 @@ public class VentanaDevoluciones extends javax.swing.JPanel {
     /**
      * Creates new form Principal1
      */
+    // Constructor de la clase
     public VentanaDevoluciones() {
-        initComponents();
+        initComponents();  // Inicializa todos los componentes gráficos
     }
 
     /**
@@ -77,8 +79,8 @@ public class VentanaDevoluciones extends javax.swing.JPanel {
     //boton pra realizar  la devolucion
     private void jB_RealizarDevolucionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_RealizarDevolucionActionPerformed
 
-        OperacionesPrestamos op = new OperacionesPrestamos();
-        op.realizarDevolucion();
+        OperacionesPrestamos op = new OperacionesPrestamos(); // Creamos objeto de operaciones
+        op.realizarDevolucion();  // Ejecutamos la devolución
     }//GEN-LAST:event_jB_RealizarDevolucionActionPerformed
 
 

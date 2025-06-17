@@ -8,8 +8,10 @@ package Programa;
  *
  * @author ericr
  */
+// Esta clase sirve para representar un usuario con todos sus datos.
 public class UsuarioDetallado {
 
+    // Atributos privados (encapsulamiento)
     private int id;
     private String nombre;
     private String apellidoPaterno;
@@ -17,6 +19,7 @@ public class UsuarioDetallado {
     private int edad;
     private String ocupacion;
 
+    // Constructor con todos los datos
     public UsuarioDetallado(int id, String nombre, String apellidoPaterno, String apellidoMaterno, int edad, String ocupacion) {
         this.id = id;
         this.nombre = nombre;
@@ -26,7 +29,7 @@ public class UsuarioDetallado {
         this.ocupacion = ocupacion;
     }
 
-    // Getters
+    // Getters para acceder a los datos (no hay setters porque es de solo lectura en este caso)
     public int getId() {
         return id;
     }

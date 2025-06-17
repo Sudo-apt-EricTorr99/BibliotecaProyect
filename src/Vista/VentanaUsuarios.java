@@ -8,8 +8,9 @@ package Vista;
  *
  * @author angel
  */
-import Conexiones.Conexion;
-import Programa.Usuario;
+// Importamos clases necesarias
+import Conexiones.Conexion;  // Clase para manejar la conexión a la base de datos
+import Programa.Usuario;  // Clase con la lógica relacionada con los usuarios
 
 public class VentanaUsuarios extends javax.swing.JPanel {
 
@@ -18,10 +19,11 @@ public class VentanaUsuarios extends javax.swing.JPanel {
     /**
      * Creates new form Principal1
      */
+    // Constructor de la clase, se ejecuta al crear un objeto VentanaUsuario
     public VentanaUsuarios() {
 
-        initComponents();
-        conexion = new Conexion();
+        initComponents(); // Inicializa todos los elementos gráficos
+        conexion = new Conexion(); // Creamos una instancia de la clase Conexion
     }
 
     /**
@@ -159,18 +161,21 @@ public class VentanaUsuarios extends javax.swing.JPanel {
 
     private void jB_AgregarLibro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AgregarLibro1ActionPerformed
         // TODO add your handling code here:
-        Usuario.eliminarUsuarioPorId();
+        // Llama al método para agregar un nuevo usuario
+        Usuario.eliminarUsuarioPorId(); 
 
     }//GEN-LAST:event_jB_AgregarLibro1ActionPerformed
 
     //boton para agregar usuario 
     private void jB_AgregarLibro2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_AgregarLibro2ActionPerformed
 
+         // Toma los datos ingresados por el usuario
         String nombre = IdUsuario.getText();
         String apellidoPaterno = IDLibro1.getText();
         String apellidoMaterno = IDLibro2.getText();
         String edad = IDLibro3.getText();
         String ocupacion = IDLibro4.getText();
+        // Llama al método para agregar un nuevo usuario
         Usuario usuarioAgregado = Usuario.agregarUsuario(nombre, apellidoPaterno, apellidoMaterno, edad, ocupacion);
 
         if (usuarioAgregado != null) {

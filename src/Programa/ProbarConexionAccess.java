@@ -10,6 +10,7 @@ import Conexiones.Conexion;
  *
  * @author ericr
  */
+//esta clasee s ára comprobar medinate la consola si sí sirve o no funciona la conexxion a la basede datos 
 public class ProbarConexionAccess {
 
     /**
@@ -17,7 +18,7 @@ public class ProbarConexionAccess {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-         Conexion conexion = new Conexion();
+         Conexion conexion = new Conexion();//creamos la conexxion 
     if(conexion.estaConectado()) {
         System.out.println("Conexión exitosa!");
     } else {

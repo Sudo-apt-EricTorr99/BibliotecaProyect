@@ -78,9 +78,12 @@ public class VentanaPrestamos extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     //boton parea realizar prestamo 
+    // Método que se ejecuta cuando el usuario hace clic en el botón "Realizar Préstamo"
     private void BotonRealizarPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRealizarPrestamoActionPerformed
         // TODO add your handling code here:
+        // Creamos una instancia del objeto que tiene toda la lógica para los préstamos
         OperacionesPrestamos op = new OperacionesPrestamos();
+        // Llamamos al método que se encarga de procesar y registrar el préstamo en la base de datos
         op.realizarPrestamo();
     }//GEN-LAST:event_BotonRealizarPrestamoActionPerformed
 

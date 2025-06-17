@@ -6,6 +6,7 @@ package Programa;
 
 import java.util.ArrayList;
 
+//Si una clase quiere usar esta interfaz, está obligada a tener estos métodos escritos
 public interface MetodosEnlistarRegistrosLibros {
 
     public ArrayList<Usuario> listarUsuarios();

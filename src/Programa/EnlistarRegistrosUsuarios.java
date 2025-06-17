@@ -5,17 +5,18 @@
 package Programa;
 
 import Conexiones.Conexion; //importamos la clase que gestiona la conexion a la base de datos
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import java.sql.ResultSet;  //Importa ResultSet para manejar resultados de consultas SQL
+import java.sql.SQLException; //Importa SQLException para capturar errores relacionados con SQL
+import java.sql.Statement; //importa Statement para ejecutar consultas SQL simples (sin parámetros)
+import java.util.ArrayList; //importa ArrayList para manejar una lista dinámica de objetos
+import javax.swing.JOptionPane; //importa JOptionPane para mostrar mensajes al usuario
+import javax.swing.table.DefaultTableModel; //importa DefaultTableModel para representar datos en tablas tipo JTable
 
 /**
  *
  * @author ericr
  */
+//para enlistar usuarios desde la base de datos y mostrarlos en una tabla
 //implementamos los metodos paera enlistar desde la base de datos y mostrar en la tabla 
 public class EnlistarRegistrosUsuarios implements MetodosEnlistUsers {
 
@@ -49,6 +50,8 @@ public class EnlistarRegistrosUsuarios implements MetodosEnlistUsers {
                     listado.add(user);
                 }
 
+                
+                //si ocurre un error durante la consulta
             } catch (SQLException ex) {
                 //muestra el error sia lgo falla durante la consulta 
                 System.err.println("Error en listarUsuarios: " + ex.getMessage());
@@ -81,10 +84,13 @@ public class EnlistarRegistrosUsuarios implements MetodosEnlistUsers {
                 });
             }
 
+            //retorna el modelo de tabla ya lleno para usar en un JTable
             return modelo;
+            // Si ocurre cualquier error al procesar los datos
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Error al llenar la tabla: " + ex.getMessage(),
                     "Error", JOptionPane.ERROR_MESSAGE);
+            // Retorna null si algo falló
             return null;
         }
     }

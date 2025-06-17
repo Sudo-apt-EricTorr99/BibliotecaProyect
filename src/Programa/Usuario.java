@@ -3,8 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Programa;
+//importamos nuestra clase de conexión
 
 import Conexiones.Conexion;
+//librerías necesarias para trabajar con SQL y listas
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -13,23 +15,27 @@ import javax.swing.JOptionPane;
  *
  * @author ericr
  */
+//Esta clase representa a un usuario de la biblioteca
+// Puede agregarse, eliminarse y registrar préstamos de libros.
 public class Usuario {
 
+    //atributos del usuario
     private String nombre;
     private int id_usuario;
     private String apellidoPaterno;
     private String apellidoMaterno;
     private int edad;
     private String ocupacion;
-    private ArrayList<String> librosPrestados;
+    private ArrayList<String> librosPrestados; //lista con los libros que tiene prestados
 
+    //constructor para cuando solo tenemos nombre e ID (como cuando recién se crea)
     public Usuario(String nombre, int id_usuario) {
         this.nombre = nombre;
         this.id_usuario = id_usuario;
         this.librosPrestados = new ArrayList<>();
     }
 
-    //constructor para agregar desde BD
+    ///constructor completo, cuando se recuperan todos los datos desde la base de datos
     public Usuario(String nombre, int id_usuario, String apellidoPaterno, String apellidoMaterno, int edad, String ocupacion) {
         this.nombre = nombre;
         this.id_usuario = id_usuario;
@@ -50,24 +56,27 @@ public class Usuario {
             return null;
         }
 
-        try {
+        try {  //consulta para insertar usuario
             String sql = "INSERT INTO Usuario (nombre, apellido_paterno, apellido_materno, edad, ocupacion) "
                     + "VALUES (?, ?, ?, ?, ?)";
 
+            //usamos RETURN_GENERATED_KEYS para obtener el ID creado
             try (PreparedStatement ps = conexion.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
                 ps.setString(1, nombre);
                 ps.setString(2, apellidoPaterno);
                 ps.setString(3, apellidoMaterno);
-                ps.setObject(4, edad.isEmpty() ? null : Integer.valueOf(edad), Types.INTEGER);
+                ps.setObject(4, edad.isEmpty() ? null : Integer.valueOf(edad), Types.INTEGER);  //si edad está vacía, mandamos null. Si no, lo convertimos a número
                 ps.setString(5, ocupacion.isEmpty() ? null : ocupacion);
 
                 int filas = ps.executeUpdate();
 
                 if (filas > 0) {
+                    //si se insertó, obtenemos el ID generado
                     ResultSet rs = ps.getGeneratedKeys();
                     if (rs.next()) {
                         int nuevoId = rs.getInt(1);
                         JOptionPane.showMessageDialog(null, "Usuario agregado con ID: " + nuevoId);
+                        //creamos el objeto con el ID
                         nuevoUsuario = new Usuario(nombre, nuevoId);
                     } else {
                         JOptionPane.showMessageDialog(null, "Usuario agregado, pero no se pudo obtener el ID.");
@@ -83,22 +92,26 @@ public class Usuario {
             JOptionPane.showMessageDialog(null, "Edad debe ser un número válido.");
         }
 
+        //retorna el usuario ya creado (o null si falló)
         return nuevoUsuario;
     }
 
     //metodo para eliminar usuario
     public static void eliminarUsuarioPorId() {
         Conexion conexion = new Conexion();
-        try {
+        try { //pedimos al usuario que ingrese el ID
             String input = JOptionPane.showInputDialog(null, "Ingrese el ID del usuario que desea eliminar:", "Eliminar Usuario", JOptionPane.QUESTION_MESSAGE);
 
+            //si no puso nada o canceló
             if (input == null || input.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Operación cancelada o entrada vacía.");
                 return;
             }
 
+            //convertimos el input a número
             int idUsuario = Integer.parseInt(input.trim());
 
+            //consulta para borrar
             String sql = "DELETE FROM Usuario WHERE id_usuario = ?";
             try (PreparedStatement ps = conexion.getConnection().prepareStatement(sql)) {
                 ps.setInt(1, idUsuario);
@@ -118,10 +131,12 @@ public class Usuario {
         }
     }
 
+    //agrega un libro a la lista de préstamos
     public void registrarPrestamo(String libro) {
         librosPrestados.add(libro);
     }
 
+    //remueve un libro de la lista
     public void devolverLibro(String libro) {
         librosPrestados.remove(libro);
     }

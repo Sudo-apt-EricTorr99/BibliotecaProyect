@@ -4,22 +4,23 @@
  */
 package Programa;
 
-import Conexiones.Conexion;
-import java.sql.*;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import Conexiones.Conexion; //importa la clase Conexion que contiene la lógica para conectarse a la base de datos
+import java.sql.*; //Importa todas las clases de java.sql (Statement, ResultSet, SQLException, etc.)
+import java.util.ArrayList; //permite usar listas dinámicas para guardar objetos
+import javax.swing.JOptionPane; //permite mostrar mensajes emergentes al usuario
+import javax.swing.table.DefaultTableModel;  //permite construir tablas que se pueden mostrar en interfaces gráficas (JTable)
 
 /**
  *
  * @author ericr
  */
-//obtener los datos detallados de loios usuarios desde la base de datos y se devuelve co,o unalista para mostarr en la tabla 
+//clase que obtiene los datos detallados de los usuarios desde la base de datos y los devuelve como lista o modelo de tabla
 public class MostrarUsuariosDetallados {
 
-    public ArrayList<UsuarioDetallado> obtenerListaUsuarios() {
-        ArrayList<UsuarioDetallado> lista = new ArrayList<>();
-        Conexion con = new Conexion(); //creamos la conexion 
+    public ArrayList<UsuarioDetallado> obtenerListaUsuarios() { //método que devuelve una lista de objetos UsuarioDetallado
+        ArrayList<UsuarioDetallado> lista = new ArrayList<>();  //crea una lista vacía para almacenar usuarios
+        //creamos una intancia  para conectarse a l abase de datos 
+        Conexion con = new Conexion(); 
 
         if (con.estaConectado()) //verifica si la conexion este activa  
         {
@@ -39,25 +40,26 @@ public class MostrarUsuariosDetallados {
                             rs.getInt("edad"),
                             rs.getString("ocupacion")
                     );
-                    //se agrega a la lista 
+                     //devuelve la lista con los usuarios cargados
                     lista.add(user);
                 }
+                //si ocurre un error al ejecutar la consulta
             } catch (SQLException ex) {
-                System.err.println("Error: " + ex.getMessage()); //si algo falla aparecera un error 
+                System.err.println("Error: " + ex.getMessage());  //imprime el mensaje de error en consola
             }
         }
 
         return lista; //devuelve la lista 
     }
 
-    //este modelo utiliza lalista de usuarios y la tranforma en unmodelo de tabla  
+    //método que devuelve un modelo de tabla con los datos de usuarios
     public DefaultTableModel obtenerModeloUsuariosDetallado() {
         //encavezamos la lista y añade cada usuario co,omo una nueva fila en la tabla 
         String[] columnas = {"ID", "Nombre", "Apellido Paterno", "Apellido Materno", "Edad", "Ocupación"};
-        DefaultTableModel modelo = new DefaultTableModel(columnas, 0);
+        DefaultTableModel modelo = new DefaultTableModel(columnas, 0);  //crea un nuevo modelo de tabla con esas columnas y 0 filas
 
-        for (UsuarioDetallado user : obtenerListaUsuarios()) {
-            modelo.addRow(new Object[]{
+        for (UsuarioDetallado user : obtenerListaUsuarios()) { //recorre cada usuario de la lista
+            modelo.addRow(new Object[]{ //agrega una nueva fila al modelo con los datos del usuario
                 user.getId(),
                 user.getNombre(),
                 user.getApellidoPaterno(),
@@ -67,6 +69,6 @@ public class MostrarUsuariosDetallados {
             });
         }
 
-        return modelo; //devuelve el modelo ya listo para usarse en una Jtable  
+        return modelo;  //devuelve el modelo listo para usarse en un JTable
     }
 }

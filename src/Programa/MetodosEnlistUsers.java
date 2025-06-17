@@ -4,7 +4,7 @@
  */
 package Programa;
 
-import java.util.ArrayList;
+import java.util.ArrayList; //mporta la clase ArrayList para poder usar listas dinámicas
 
 /**
  *
@@ -12,7 +12,9 @@ import java.util.ArrayList;
  */
 public interface MetodosEnlistUsers {
 
+    //metodo que debe devolver una lista de objetos tipo Usuario
     ArrayList<Usuario> listarUsuarios(); 
 
+    //metodo que debe recibir una lista de objetos tipo Material y devolver un String con algún formato
     String darFormato(ArrayList<Material> materiales); 
 }
