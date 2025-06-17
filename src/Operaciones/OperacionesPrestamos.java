@@ -4,40 +4,48 @@
  */
 package Operaciones;
 
-import Conexiones.Conexion;
-import java.sql.*;
-import javax.swing.JOptionPane;
+import Conexiones.Conexion;  // Importamos nuestra clase de conexión personalizada a la BD
+import java.sql.*; // Importamos todo lo necesario para trabajar con SQL en Java
+import javax.swing.JOptionPane; // Importamos esta clase para mostrar cuadros de diálogo
 
 /**
  *
  * @author ericr
  */
+//el query rs para inseertar datos nuevos, actualizar algo o eliminar registros.
 public class OperacionesPrestamos {
+// Método que se encarga de hacer una devolución de un libro prestado
 
     public void realizarDevolucion() {
         try {
-            //pedir datos
+            // Pedimos al usuario que introduzca el ID del usuario
             String inputUsuario = JOptionPane.showInputDialog(null, "Introduce el ID del usuario:");
+            // Pedimos al usuario que introduzca el ID del libro
             String inputLibro = JOptionPane.showInputDialog(null, "Introduce el ID del libro:");
 
-            //validar entradas
+            // Validamos si el usuario canceló o dejó los campos vacíos
             if (inputUsuario == null || inputLibro == null
                     || inputUsuario.trim().isEmpty() || inputLibro.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Operación cancelada.");
-                return;
+                return;  // Salimos del método si la entrada no es válida
             }
 
+            // Convertimos los valores ingresados a enteros (ID de usuario y de libro)
             int idUsuario = Integer.parseInt(inputUsuario.trim());
             int idLibro = Integer.parseInt(inputLibro.trim());
 
+            // Creamos la conexión a la base de datos
             Conexion conexion = new Conexion();
+            // Usamos try-with-resources para asegurarnos que se cierre la conexión
             try (Connection conn = conexion.getConnection(); PreparedStatement stmt = conn.prepareStatement(
                     "DELETE FROM Prestamos WHERE Id_Usuario = ? AND Id_Libro = ?")) {
 
+                // Reemplazamos los signos de ? con los valores del usuario y libro
                 stmt.setInt(1, idUsuario);
                 stmt.setInt(2, idLibro);
                 int filas = stmt.executeUpdate();
 
+                // Verificamos si sí se eliminó algo (si el préstamo existía)
                 if (filas > 0) {
                     JOptionPane.showMessageDialog(null, "Devolución realizada exitosamente.");
                 } else {
@@ -45,21 +53,23 @@ public class OperacionesPrestamos {
                 }
             }
 
+            // Si el usuario mete algo que no es número, mostramos un mensaje de error
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "ID inválido. Introduce solo números enteros.");
         } catch (SQLException e) {
+            // Si hubo un error al trabajar con SQL, lo mostramos
             JOptionPane.showMessageDialog(null, "Error al realizar devolución: " + e.getMessage());
         }
     }
 
-    //metodo para hacer un prestamo
+    // Método para registrar un nuevo préstamo
     public void realizarPrestamo() {
         try {
-            //solicita el ID del usuario
+            // Pedimos al usuario que introduzca el ID del usuario
             String inputUsuario = JOptionPane.showInputDialog(null, "Introduce el ID del usuario:");
             if (inputUsuario == null || inputUsuario.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Operación cancelada.");
-                return;
+                return;  // Salimos si no se ingresó el dato
             }
 
             //solicita el ID del libro
@@ -69,22 +79,28 @@ public class OperacionesPrestamos {
                 return;
             }
 
+            // Convertimos las entradas a enteros
             int idUsuario = Integer.parseInt(inputUsuario.trim());
             int idLibro = Integer.parseInt(inputLibro.trim());
 
+            // Creamos una instancia de conexión
             Conexion conexion = new Conexion();
+            // Creamos la conexión y el query INSERT con parámetros
             try (Connection conn = conexion.getConnection(); PreparedStatement stmt = conn.prepareStatement(
                     "INSERT INTO Prestamos (Id_Usuario, Id_Libro, Fecha_Prestamo) VALUES (?, ?, ?)")) {
 
+                // Insertamos los valores en el query
                 stmt.setInt(1, idUsuario);
                 stmt.setInt(2, idLibro);
 
-                //obtener fecha actual 
+                // Obtenemos la fecha actual para registrar cuándo se hizo el préstamo
                 java.sql.Date fechaActual = new java.sql.Date(System.currentTimeMillis());
-                stmt.setDate(3, fechaActual);
+                stmt.setDate(3, fechaActual); // Se guarda la fecha del préstamo
 
+                // Ejecutamos el query de INSERT
                 int filas = stmt.executeUpdate();
 
+                // Verificamos si sí se insertó (es decir, se registró el préstamo)
                 if (filas > 0) {
                     JOptionPane.showMessageDialog(null, "Préstamo registrado exitosamente.");
                 } else {
@@ -93,8 +109,10 @@ public class OperacionesPrestamos {
             }
 
         } catch (NumberFormatException e) {
+            // Por si escribieron letras en vez de números
             JOptionPane.showMessageDialog(null, "ID inválido. Introduce solo números enteros.");
         } catch (SQLException e) {
+            // Mostramos cualquier error de SQL
             JOptionPane.showMessageDialog(null, "Error al realizar el préstamo: " + e.getMessage());
         }
     }
