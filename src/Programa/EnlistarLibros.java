@@ -20,10 +20,10 @@ public class EnlistarLibros {
     //además llena un modelo de tabla con esos mismos datos para mostrarlos en una JTable.
     public DefaultTableModel obtenerModeloLibros() {
         Conexion conexion = new Conexion(); // Se conecta a la base de datos
-        LinkedList<Libro> listaLibros = new LinkedList<>(); // Estructura de datos para almacenar los libros
-        DefaultTableModel modelo = new DefaultTableModel(); // Modelo de tabla que se va a llenar
+        LinkedList<Libro> listaLibros = new LinkedList<>(); //estructura de datos para almacenar los libros
+        DefaultTableModel modelo = new DefaultTableModel(); //modelo de tabla que se va a llenar
 
-        // Se agregan las columnas al modelo de la tabla
+        //se agregan las columnas al modelo de la tabla
         modelo.addColumn("ID");
         modelo.addColumn("Nombre");
         modelo.addColumn("ID Autor");
@@ -41,17 +41,17 @@ public class EnlistarLibros {
                 int idEditorial = rs.getInt("Id_Editorial");
                 Date fecha = rs.getDate("Fecha_Lanzamiento");
 
-                // Creamos un nuevo objeto Libro con los datos de la fila
+                //creamos un nuevo objeto Libro con los datos de la fila
                 Libro libro = new Libro(id, nombre, idAutor, idEditorial, fecha);
 
-                // Agregamos el libro a la estructura de datos
+                //agregamos el libro a la estructura de datos
                 listaLibros.add(libro);
 
-                // Agregamos el libro a la tabla
+                //agregamos el libro a la tabla
                 modelo.addRow(libro.toFila());
             }
 
-            // Si no hay libros registrados, avisamos al usuario
+            //si no hay libros registrados, avisamos al usuario
             if (listaLibros.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No hay libros registrados.");
             }
@@ -60,6 +60,6 @@ public class EnlistarLibros {
             JOptionPane.showMessageDialog(null, "Error al obtener libros: " + e.getMessage());
         }
 
-        return modelo; // Devolvemos el modelo para que se pueda mostrar en una JTable
+        return modelo; //devolvemos el modelo para que se pueda mostrar en una JTable
     }
 }

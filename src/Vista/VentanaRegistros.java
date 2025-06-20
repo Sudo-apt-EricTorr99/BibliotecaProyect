@@ -7,7 +7,7 @@ package Vista;
 import Programa.EnlistarLibros;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import Programa.MostrarUsuariosDetallados;
+import Programa.MostrarUsuariosDetall;
 
 /**
  *
@@ -137,20 +137,22 @@ public class VentanaRegistros extends javax.swing.JPanel {
 
     //boton para enlistar usuarios 
     private void BotonParaEnlistarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarUsuariosActionPerformed
-        try {  // Creamos un objeto de la clase que contiene la lógica para obtener usuarios detallados
-            MostrarUsuariosDetallados mostrar = new MostrarUsuariosDetallados();
-            // Obtenemos el modelo de tabla con los datos de los usuarios
-            DefaultTableModel modelo = mostrar.obtenerModeloUsuariosDetallado();
-            // Si el modelo tiene datos, lo mostramos en la tabla jTable4
+        try {
+            // Creamos un objeto de la clase que obtiene usuarios detallados
+            MostrarUsuariosDetall mostrar = new MostrarUsuariosDetall();
+
+            // Obtenemos el modelo de tabla desde el método que también usa estructuras de datos
+            DefaultTableModel modelo = mostrar.obtenerModeloUsuariosDetalladoConEstructura();
+
+            // Verificamos si se obtuvo algún dato
             if (modelo != null && modelo.getRowCount() > 0) {
-                jTable4.setModel(modelo);
+                jTable4.setModel(modelo); // Mostramos los datos en la tabla jTable4
             } else {
-                // Si no hay usuarios en la base de datos, se notifica al usuario
                 JOptionPane.showMessageDialog(this, "No se encontraron usuarios.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
             }
-            // Si hay algún error, lo mostramos con detalles
+
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Error al mostrar usuarios: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BotonParaEnlistarUsuariosActionPerformed
 
