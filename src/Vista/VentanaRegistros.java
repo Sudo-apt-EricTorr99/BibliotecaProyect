@@ -113,20 +113,23 @@ public class VentanaRegistros extends javax.swing.JPanel {
     // Este método se ejecuta cuando se da clic al botón "Gestionar Libros"
     private void BotonParaEnlistarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParaEnlistarLibrosActionPerformed
         try {
-            // Creamos un objeto de la clase que tiene la lógica para obtener los libros
+            // Creamos un objeto de la clase que maneja la lógica para obtener los libros
             EnlistarLibros enlistador = new EnlistarLibros();
-            // Obtenemos el modelo de tabla con los datos de los libros desde la base de datos
-            DefaultTableModel modelo = (DefaultTableModel) enlistador.obtenerModeloLibros();
-            // Si el modelo no está vacío, lo mostramos en la tabla jTable2
+
+            // Obtenemos el modelo de tabla con los datos (ya usa estructura LinkedList internamente)
+            DefaultTableModel modelo = enlistador.obtenerModeloLibros();
+
+            // Si el modelo tiene filas (datos), se muestra en la tabla jTable2
             if (modelo != null && modelo.getRowCount() > 0) {
                 jTable2.setModel(modelo);
-                // Si no hay datos, se muestra un mensaje al usuario
             } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "No se encontraron libros en la base de datos.");
+                // Si no hay libros, mostramos un mensaje
+                JOptionPane.showMessageDialog(this, "No se encontraron libros en la base de datos.");
             }
-            // Si algo falla (por ejemplo, error de conexión), se muestra un mensaje de error
+
         } catch (Exception ex) {
-            javax.swing.JOptionPane.showMessageDialog(this, "Error al mostrar libros: " + ex.getMessage());
+            // En caso de error, mostramos mensaje con detalle
+            JOptionPane.showMessageDialog(this, "Error al mostrar libros: " + ex.getMessage());
         }
 
 
@@ -145,7 +148,7 @@ public class VentanaRegistros extends javax.swing.JPanel {
                 // Si no hay usuarios en la base de datos, se notifica al usuario
                 JOptionPane.showMessageDialog(this, "No se encontraron usuarios.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
             }
-             // Si hay algún error, lo mostramos con detalles
+            // Si hay algún error, lo mostramos con detalles
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }

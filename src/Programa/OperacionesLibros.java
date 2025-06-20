@@ -4,12 +4,13 @@
  */
 package Programa;
 
-import Conexiones.Conexion; //importamos la clase que maneja la conexión con la base de datos
-import javax.swing.JOptionPane;  //permite mostrar ventanas emergentes para avisos o errores
-import java.sql.Connection;   //permite usar el objeto de conexión
-import java.sql.Date; //permite manejar fechas tipo SQL
-import java.sql.PreparedStatement; //permite preparar consultas SQL seguras
-import java.sql.SQLException; //permite capturar errores relacionados con SQL 
+import Conexiones.Conexion; // maneja la conexión a BD
+import javax.swing.JOptionPane;  // para ventanas emergentes
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.ArrayList;  // para usar listas dinámicas
 
 /**
  *
@@ -17,26 +18,31 @@ import java.sql.SQLException; //permite capturar errores relacionados con SQL
  */
 //clase que contiene métodos para agregar y eliminar libros en la base de datos 
 public class OperacionesLibros {
+    // Lista interna para almacenar temporalmente los libros agregados
+
+    private ArrayList<Libro> listaLibros = new ArrayList<>();
 
     //agregamos un libro nuevo a la base de datos  
     public void agregarLibro(String nombre, int idAutor, int idEditorial, Date fechaLanzamiento) {
-        Conexion conexion = new Conexion(); //creamos la conexion 
-        //consulta SQL con signos de interrogación para  Evita errores al insertar comillas o caracteres raros. 
+        Conexion conexion = new Conexion();
         String sql = "INSERT INTO Libros (Nombre, Id_Autor, Id_Editorial, Fecha_Lanzamiento) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = conexion.getConnection().prepareStatement(sql)) {
-            //asigna el valor de cada parámetro en la consulta
             pstmt.setString(1, nombre);
             pstmt.setInt(2, idAutor);
             pstmt.setInt(3, idEditorial);
             pstmt.setDate(4, fechaLanzamiento);
 
-            //ejecuta la consulta INSERT en la base de datos
             pstmt.executeUpdate();
-            //muestra un mensaje indicando que se agregó correctamente
             JOptionPane.showMessageDialog(null, "Libro agregado correctamente.");
 
-            //muestra un mensaje de error si algo sale mal al insertar
+            // Además de agregar a la BD, creamos un objeto Libro y lo guardamos en la lista interna
+            Libro nuevoLibro = new Libro(nombre, "", 0); // usa constructor que tienes, con datos mínimos
+            // Aquí puedes crear un constructor más completo si quieres con idAutor, editorial, etc.
+            nuevoLibro.setNombre(nombre);  // usa setter para nombre
+            nuevoLibro.setEditorial("Editorial con ID: " + idEditorial);  // solo ejemplo
+            listaLibros.add(nuevoLibro); // agregamos a la lista
+
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al insertar libro: " + e.getMessage(),
                     "Error", JOptionPane.ERROR_MESSAGE);
@@ -46,43 +52,40 @@ public class OperacionesLibros {
     //método para eliminar un libro de la base de datos por medio de su ID
     public void eliminarLibro() {
         try {
-            //le pide al usuario que escriba el ID del libro que quiere eliminar
             String input = JOptionPane.showInputDialog(null, "Introduce el ID del libro a eliminar:", "Eliminar libro", JOptionPane.QUESTION_MESSAGE);
 
-            //si el usuario cancela o no escribe nada, se cancela la operación
             if (input == null || input.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Operación cancelada o sin ID ingresado.");
                 return;
             }
 
-            //convierte el texto ingresado a un número entero
-            int idLibro = Integer.parseInt(input.trim()); //convierte a un numero   
+            int idLibro = Integer.parseInt(input.trim());
 
-            Conexion conexion = new Conexion(); //nueva conexión a la base
+            Conexion conexion = new Conexion();
             try (Connection conn = conexion.getConnection(); PreparedStatement stmt = conn.prepareStatement("DELETE FROM Libros WHERE Id_Libro = ?")) {
-
-                //asigna el ID a eliminar en la consulta
                 stmt.setInt(1, idLibro);
-                //ejecuta la consulta DELETE y guarda cuántas filas se eliminaron
-                int filas = stmt.executeUpdate(); //ejecuta el delete 
+                int filas = stmt.executeUpdate();
 
-                //si al menos una fila fue eliminada, el libro fue encontrado y eliminado
                 if (filas > 0) {
                     JOptionPane.showMessageDialog(null, "Libro eliminado exitosamente.");
-                    //si no se encontró ningún libro con ese ID
+
+                    // También eliminamos el libro de la lista interna, buscando por nombre o id si tuvieras
+                    listaLibros.removeIf(libro -> libro.getId() == idLibro);
+
                 } else {
                     JOptionPane.showMessageDialog(null, "No se encontró un libro con ese ID.");
                 }
-
             }
 
         } catch (NumberFormatException e) {
-            //si el ID ingresado no era un número válido
             JOptionPane.showMessageDialog(null, "ID inválido. Introduce un número entero.");
         } catch (SQLException e) {
-            //si ocurre un error al intentar eliminar el libro
             JOptionPane.showMessageDialog(null, "Error al eliminar libro: " + e.getMessage());
         }
     }
 
+    // Método adicional para obtener la lista interna (por si quieres usarla en interfaz o debug)
+    public ArrayList<Libro> getListaLibros() {
+        return listaLibros;
+    }
 }
